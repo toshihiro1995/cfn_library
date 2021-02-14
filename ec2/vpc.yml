@@ -1,0 +1,16 @@
+Parameters:
+  VpcName:
+    Description: "VPC Name Tag"
+    Type: String
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: "10.0.0.0/16"
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: "default" # "default" or "dedicated"
+      Tags: 
+        - Key: "Name"
+          Value: !Ref VpcName
